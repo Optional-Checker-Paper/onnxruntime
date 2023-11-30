@@ -4,12 +4,20 @@ plugins {
 	id 'signing'
 	id 'jacoco'
 	id "com.diffplug.spotless" version "6.13.0"
+    id 'org.checkerframework' version '0.6.35'
 }
 
 allprojects {
 	repositories {
 		mavenCentral()
 	}
+	apply plugin: 'org.checkerframework'
+}
+
+checkerFramework {
+	checkers = [
+			'org.checkerframework.checker.optional.OptionalChecker'
+	]
 }
 
 project.group = "com.microsoft.onnxruntime"
